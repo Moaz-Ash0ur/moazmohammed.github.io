@@ -603,30 +603,46 @@ section {
 .project-links {
     display: flex;
     gap: 1rem;
+
 }
 
 .link-btn {
-    padding: 8px 18px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: 0.3s;
+  padding: 8px 18px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: 
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
+
 .link-btn.source {
-    border: 1px solid var(--text-color);
-    color: var(--text-color);
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  background: transparent;
+}
+
+.link-btn.source:hover {
+  background: var(--hover-color);
+  color: var(--bg-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
 .link-btn.live {
-    background: var(--hover-color);
-    color: var(--bg-color);
-    font-weight: 600;
+  background: var(--hover-color);
+  color: var(--bg-color);
+  font-weight: 600;
 }
 
-.link-btn:hover {
-    opacity: 0.8;
+.link-btn.live:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--text-color);
 }
+
 
 /* End Project */
 
@@ -1226,4 +1242,28 @@ section {
 .content a {
     color: var(--hover-color);
     text-decoration: underline;
+}
+
+/* لجعل قسم التعلم الذاتي يأخذ العرض كاملاً تحتهم */
+.column.full-width {
+    flex: 1 1 100%;
+    margin-top: 2rem;
+}
+
+/* اختيارياً: تقسيم النقاط إلى عمودين داخل الصندوق ليكون الشكل احترافي */
+.learning-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 40px;
+}
+
+.learning-grid ul {
+    flex: 1 1 300px;
+}
+
+/* لضمان التوافق مع الهواتف */
+@media (max-width: 768px) {
+    .learning-grid {
+        flex-direction: column;
+    }
 }
